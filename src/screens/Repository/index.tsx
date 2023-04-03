@@ -23,6 +23,7 @@ import {
   OpenIssuesCounter,
   OpenIssuesText,
   IssuesList,
+  
 } from './styles';
 import { TitleAnimation } from './TitleAnimation';
 
@@ -38,6 +39,7 @@ export function Repository() {
 
   function handleIssueNavigation(issueUrl: string) {
     // TODO - use Linking to open issueUrl in a browser
+    Linking.openURL(issueUrl)
   }
 
   return (
@@ -48,9 +50,10 @@ export function Repository() {
 
           <TextGroup>
             <TitleAnimation>
-              {
+              
                 // TODO - full name of the repository
-              }
+                
+              
             </TitleAnimation>
 
             <Description numberOfLines={2}>{
@@ -94,6 +97,7 @@ export function Repository() {
                 subTitle: issue.user.login,
               }}
               // TODO - onPress prop calling 
+              onPress={() => handleIssueNavigation(issue.html_url)}
             />
           )}
         />
